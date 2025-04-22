@@ -7,7 +7,8 @@ username= 'tanveer'								#Username
 password = 'g202417180'								#Password
 topic = 'switch1'									#Subscription topic
 topic2 = 'potentiometer'
-
+SwStatus = ""
+BrightNess = ""
 
 def on_connect(status, msg, packet):			#show connection status
 	if status == "Success" or status == "Error":
@@ -43,9 +44,7 @@ def on_publish(status, msg, packet):			#show publishing status
 		print msg
 	
 def on_message_received(status, msg, packet):  #Invoked when new message received
-	
-	SwStatus = ""
-	BrightNess = ""
+	global SwStatus, BrightNess
 	
 	if packet['topic'] == "switch1":
 		
